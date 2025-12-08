@@ -1,0 +1,181 @@
+/* --- SISTEMA DE DISEÑO: SLATE & STEEL --- */
+
+:root {
+    /* PALETA DE COLORES (Metallic/Pastel Pro) */
+    /* Fondo general: Un gris azulado muy pálido (casi blanco, pero con "alma") */
+    --bg-body: #f1f5f9;
+
+    /* Tarjetas: Blanco puro para que resalten sobre el fondo */
+    --bg-card: #ffffff;
+
+    /* Texto Principal: Azul marino muy oscuro (más suave que el negro puro) */
+    --text-main: #0f172a;
+
+    /* Texto Secundario: Gris metálico medio */
+    --text-muted: #64748b;
+
+    /* Acentos: Azul Acero (Steel Blue) para botones y enlaces */
+    --accent-color: #334155;
+    --accent-hover: #475569;
+
+    /* Cajas de Alto Contraste (Tesis/Aprendizaje): Azul Noche profundo */
+    --dark-box-bg: #1e293b;
+    --dark-box-text: #f8fafc; /* Blanco hielo */
+
+    /* Bordes sutiles */
+    --border-color: #e2e8f0;
+}
+
+/* 1. BASE Y TIPOGRAFÍA */
+body {
+    background-color: var(--bg-body);
+    color: var(--text-main);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    line-height: 1.7; /* Mayor espaciado para lectura elegante */
+    padding-top: 80px;
+}
+
+h1, h2, h3, h4, .navbar-brand {
+    font-weight: 700;
+    color: var(--text-main);
+    letter-spacing: -0.02em;
+}
+
+/* 2. BARRA DE NAVEGACIÓN (Efecto Vidrio Metálico) */
+.navbar {
+    background-color: rgba(255, 255, 255, 0.85); /* Semitransparente */
+    backdrop-filter: blur(12px); /* Efecto vidrio esmerilado */
+    border-bottom: 1px solid var(--border-color);
+    padding: 1rem 0;
+}
+
+.navbar-brand {
+    font-size: 1.3rem;
+    color: var(--text-main);
+}
+
+.nav-link {
+    color: var(--text-muted) !important;
+    font-weight: 500;
+    transition: color 0.2s ease;
+}
+
+.nav-link.active, .nav-link:hover {
+    color: var(--accent-color) !important;
+}
+
+/* 3. TARJETAS (Estilo consistente en todas las páginas) */
+.feature-card {
+    background-color: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: 12px; /* Bordes más suaves */
+    padding: 2.5rem;
+    height: 100%;
+    transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05); /* Sombra sutil */
+}
+
+.feature-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+    border-color: #cbd5e1; /* Se oscurece un poco el borde */
+}
+
+/* Iconos dentro de las tarjetas */
+.card-icon {
+    font-size: 2rem;
+    margin-bottom: 1.2rem;
+    display: block;
+}
+
+/* 4. CAJAS DE ALTO CONTRASTE (Solución para Tesis y Aprendizaje) */
+/* Esta clase arregla tus problemas de lectura en xp.html y hobbies.html */
+.dark-box {
+    background: linear-gradient(135deg, var(--dark-box-bg), #0f172a); /* Gradiente sutil metálico */
+    color: var(--dark-box-text) !important;
+    padding: 3rem;
+    border-radius: 12px;
+    box-shadow: 0 10px 25px -5px rgba(15, 23, 42, 0.3); /* Sombra elegante */
+}
+
+/* Forzamos que TODO el texto dentro de la caja oscura sea blanco/claro */
+.dark-box h2, .dark-box h3, .dark-box p, .dark-box li, .dark-box strong {
+    color: var(--dark-box-text) !important;
+}
+
+.dark-box .opacity-75 {
+    opacity: 0.8; /* Ajuste para subtítulos */
+}
+
+/* 5. ACORDEÓN (Startups) - Integrado con la paleta */
+.accordion-item {
+    border: 1px solid var(--border-color);
+    background-color: transparent;
+}
+
+.accordion-button {
+    background-color: var(--bg-card);
+    color: var(--text-main);
+    font-weight: 600;
+}
+
+.accordion-button:not(.collapsed) {
+    background-color: #e2e8f0; /* Color metálico suave al abrir */
+    color: var(--text-main);
+    box-shadow: none;
+}
+
+.accordion-button:focus {
+    box-shadow: none;
+    border-color: var(--accent-color);
+}
+
+/* 6. BOTONES Y ENLACES */
+.link-arrow {
+    text-decoration: none;
+    color: var(--accent-color);
+    font-weight: 700;
+    border-bottom: 2px solid transparent;
+    transition: all 0.2s;
+}
+
+.link-arrow:hover {
+    color: var(--accent-hover);
+    border-bottom-color: var(--accent-hover);
+}
+
+/* Botones de la Trivia */
+.btn-trivia {
+    background-color: var(--bg-card);
+    border: 1px solid var(--border-color);
+    color: var(--text-main);
+    padding: 1rem;
+    border-radius: 8px;
+    font-weight: 500;
+    transition: all 0.2s;
+}
+
+.btn-trivia:hover {
+    background-color: #e2e8f0; /* Gris metálico hover */
+    border-color: var(--accent-color);
+}
+
+/* 7. IMAGEN DE PERFIL */
+.profile-img {
+    width: 160px;
+    height: 160px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 4px solid var(--bg-card); /* Borde blanco para separar del fondo */
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+}
+
+/* 8. UTILIDADES DE TEXTO */
+.text-muted {
+    color: var(--text-muted) !important;
+}
+
+hr {
+    border-color: var(--border-color);
+    opacity: 1;
+}
